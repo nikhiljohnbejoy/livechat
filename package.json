@@ -2,9 +2,10 @@
   "name": "livechat",
   "version": "1.0.0",
   "description": "NODE LIVE VIDEO CHAT",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js",
+    "watch": "npx watchify ./public/main.js -o ./public/bundle.js"
   },
   "repository": {
     "type": "git",
