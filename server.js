@@ -12,10 +12,12 @@ io.on('connection', function(socket){
     
     socket.on("NewClient", function(){
         
-        if(clients==0){
-            clients++;
+        clients++;
+
+        if(clients==1){
+
         }
-           else if(clients == 1){
+        else if(clients == 2){
                 console.log('emit peer')
                 this.emit('CreatePeer')
             }
