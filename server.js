@@ -12,14 +12,18 @@ io.on('connection', function(socket){
     
     socket.on("NewClient", function(){
         
-        if(clients<2){
-            if(clients == 1){
+        if(clients==0){
+            clients++;
+        }
+           else if(clients == 1){
                 console.log('emit peer')
                 this.emit('CreatePeer')
             }
-            clients++;
+                
+            
         }
         else{
+            console.log('restrict')
             this.emit('SessionActive')
         }
         
