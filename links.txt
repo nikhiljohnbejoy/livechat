@@ -1,0 +1,4 @@
+https://dashboard.heroku.com/apps/video-chat-njb/deploy/heroku-git
+https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
+https://www.youtube.com/watch?v=KLCcCTFivhM
+https://github.com/nikhiljohnbejoy/livechat
