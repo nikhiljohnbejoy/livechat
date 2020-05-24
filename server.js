@@ -23,6 +23,7 @@ io.on('connection', function(socket){
             }
                 
         else{
+            clients --;
             console.log('restrict')
             this.emit('SessionActive')
         }
