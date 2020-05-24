@@ -20,8 +20,6 @@ io.on('connection', function(socket){
                 this.emit('CreatePeer')
             }
                 
-            
-        }
         else{
             console.log('restrict')
             this.emit('SessionActive')
