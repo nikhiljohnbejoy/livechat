@@ -17,11 +17,12 @@ io.on('connection', function(socket){
                 console.log('emit peer')
                 this.emit('CreatePeer')
             }
+            clients++;
         }
         else{
             this.emit('SessionActive')
         }
-        clients++;
+        
         console.log('con'+clients)
     })
     socket.on('Offer',SendOffer)
