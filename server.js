@@ -11,19 +11,6 @@ let clients = 0;
 io.on('connection', function(socket){
     
     socket.on("NewClient", function(){
-<<<<<<< HEAD
-        
-        clients++;
-
-        if(clients==1){
-
-        }
-        else if(clients == 2){
-                console.log('emit peer')
-                this.emit('CreatePeer')
-            }
-                
-=======
         console.log('con call')
         clients++;
         if(clients<3){
@@ -34,7 +21,6 @@ io.on('connection', function(socket){
             }
             console.log('con'+clients)
         }
->>>>>>> ce95b368c80e4a1c9eb85ae150446f2527c976b9
         else{
             clients --;
             console.log('restrict')
@@ -42,10 +28,6 @@ io.on('connection', function(socket){
             this.disconnect();
         }
         
-<<<<<<< HEAD
-        console.log('con'+clients)
-=======
->>>>>>> ce95b368c80e4a1c9eb85ae150446f2527c976b9
     })
     socket.on('Offer',SendOffer)
 
