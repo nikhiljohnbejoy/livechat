@@ -17,10 +17,10 @@ navigator.mediaDevices.getUserMedia({video : true, audio : true})
         peer.on('stream',function(stream){
             CreateVideo(stream)
         })
-        peer.on('close',function(){
+        /*peer.on('close',function(){
             document.getElementById("peerVideo").remove();
             peer.destroy();
-        })
+        })*/
         return peer;
     }
     //For Peer of type Init
@@ -63,10 +63,17 @@ navigator.mediaDevices.getUserMedia({video : true, audio : true})
         console.log('session active')
         document.write('Session Active. pls come back later');
     }
+    function RemovePeer(){
+        console.log('lala');
+        document.getElementById("peerVideo").remove();
+        if(client.peer)
+            client.peer.destroy();
+    } 
     socket.on('BackOffer', FrontAnswer)
     socket.on('BackAnswer', SignalAnswer)
     socket.on('SessionActive',sessionActive)
     socket.on('CreatePeer',MakePeer)
+    socket.on('Disconnect',RemovePeer)
 
 })
 .catch(err => document.write(err));
