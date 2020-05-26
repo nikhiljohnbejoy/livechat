@@ -33,9 +33,16 @@ io.on('connection', function(socket){
 
 
     function Disconnect(){
-        if(clients > 0)
-        clients--;
-        
+        console.log('count when disconnected'+ clients)
+        if(clients > 0){
+            if(clients<=2){
+                console.log('Disconnect')
+                this.broadcast.emit('Disconnect')
+                this.broadcast.emit('Simply')
+            }
+                clients--
+            
+        }
         console.log('dis'+clients)
     }
     function SendOffer(offer){
