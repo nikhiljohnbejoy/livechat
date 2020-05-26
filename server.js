@@ -22,7 +22,7 @@ io.on('connection', function(socket){
             console.log('con'+clients)
         }
         else{
-            console.log('restrict')
+            console.log('restricted')
             this.emit('SessionActive')
             this.disconnect();
         }
