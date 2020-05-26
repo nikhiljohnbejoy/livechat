@@ -11,18 +11,21 @@ let clients = 0;
 io.on('connection', function(socket){
     
     socket.on("NewClient", function(){
-        
-        if(clients<2){
-            if(clients == 1){
+        console.log('con call')
+        clients++;
+        if(clients<3){
+
+            if(clients == 2){
                 console.log('emit peer')
                 this.emit('CreatePeer')
             }
+            console.log('con'+clients)
         }
         else{
             this.emit('SessionActive')
+            this.disconnect();
         }
-        clients++;
-        console.log('con'+clients)
+        
     })
     socket.on('Offer',SendOffer)
 
@@ -33,17 +36,13 @@ io.on('connection', function(socket){
 
 
     function Disconnect(){
-        console.log('count when disconnected'+ clients)
-        if(clients > 0){
-            if(clients<=2){
-                console.log('Disconnect')
+        console.log('dis call')
+            if(clients>0&&clients<=2){
                 this.broadcast.emit('Disconnect')
-                this.broadcast.emit('Simply')
+                console.log('dis'+clients)
             }
+            if(clients>0)
                 clients--
-            
-        }
-        console.log('dis'+clients)
     }
     function SendOffer(offer){
         console.log('SendOffer')
