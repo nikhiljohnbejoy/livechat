@@ -33,6 +33,9 @@ io.on('connection', function(socket){
     socket.on('Answer',SendAnswer)
 
     socket.on('disconnect',Disconnect)
+
+    
+    socket.on('Message',SendMessage)
 })
 
 
@@ -54,6 +57,10 @@ io.on('connection', function(socket){
         this.broadcast.emit('BackAnswer',answer)
     }
 
+    function SendMessage(msg){
+        console.log(msg)
+        this.broadcast.emit('GetMessage',msg)
+    }
 
 http.listen(port, () => console.log(`Active on ${port} port`))
 /*var path = require('path');

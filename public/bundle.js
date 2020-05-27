@@ -8174,7 +8174,8 @@ let Peer = require('simple-peer');
 let socket = io();
 const video = document.querySelector('video');
 let client = {};
-
+let outMsg=document.getElementById("outMessage");
+let inpMsg=document.getElementById("inpMessage");
 //get stream
 navigator.mediaDevices.getUserMedia({video : true, audio : true})
 .then(stream =>{
@@ -8249,4 +8250,16 @@ navigator.mediaDevices.getUserMedia({video : true, audio : true})
 
 })
 .catch(err => document.write(err));
+
+function search() {
+    if(event.key === 'Enter') {
+        //alert(msgEle.value);  
+        socket.emit('Message',outMsg.value);     
+    }
+}
+function inpMsgFunc(msg) {
+    inpMsg.innerHTML=msg;
+}
+socket.on('GetMessage',inpMsgFunc)
+outMsg.addEventListener("keydown", search);
 },{"simple-peer":27}]},{},[34]);
