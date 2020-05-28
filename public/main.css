@@ -1,3 +1,11 @@
 video {
     transform: rotateY(180deg);
 }
+.embed-responsive {
+    position: absolute;
+}
+.myVideo {
+    width: 25%;
+    z-index: 1;
+    opacity: 70%;
+}
